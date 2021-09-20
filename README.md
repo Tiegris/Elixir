@@ -19,6 +19,7 @@
 ## Commands
 
 ```bash
+elixir-upgrade
 elixir-start
 elixir
 elixirc
