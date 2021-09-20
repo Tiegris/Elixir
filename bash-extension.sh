@@ -6,7 +6,8 @@ elixir-upgrade() {
     cd $HOME/.elixir/ && \
     git pull && \
     docker build -t elixir:tiegris . && \
-    source $HOME/.elixir/bash-extension
+    source $HOME/.elixir/bash-extension.sh && \
+    echo "Elixir extension successfully upgraded and reloaded"
     cd $pwdbak
 }
 
@@ -15,7 +16,7 @@ elixir-start() {
     if [ "$COUNT" -eq 1 ]
     then
         docker stop elixir >/dev/null && \
-        echo "Stoping old elixir container."
+        echo "Stopping old elixir container."
     fi
 
     echo $(pwd) > $HOME/.elixir/elixir-home
