@@ -14,13 +14,13 @@ elixir-start() {
     COUNT=$(docker container ls | grep elixir | wc -l)
     if [ "$COUNT" -eq 1 ]
     then
-        docker stop elixir >/dev/null
+        docker stop elixir >/dev/null && \
         echo "Stoping old elixir container."
     fi
 
     echo $(pwd) > $HOME/.elixir/elixir-home
     ELIXIR_HOME=$(cat "$HOME/.elixir/elixir-home")
-    docker run --env ELIXIR_HOME=$ELIXIR_HOME --rm -dit -v "$ELIXIR_HOME:/elixir-home" --name elixir elixir:tiegris /bin/bash >/dev/null
+    docker run --env ELIXIR_HOME=$ELIXIR_HOME --rm -dit -v "$ELIXIR_HOME:/elixir-home" --name elixir elixir:tiegris /bin/bash >/dev/null && \
     echo "Elixir container started."
 }
 
