@@ -2,9 +2,12 @@
 # Elixir
 ################################
 elixir-upgrade() {
-    cd $HOME/.elixir/
-    git pull
-    docker build -t elixir:tiegris .
+    pwdbak=$(pwd) && \
+    cd $HOME/.elixir/ && \
+    git pull && \
+    docker build -t elixir:tiegris . && \
+    source $HOME/.elixir/bash-extension
+    cd $pwdbak
 }
 
 elixir-start() {
