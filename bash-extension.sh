@@ -48,7 +48,7 @@ elixir() {
         ELIXIR_HOME=$(cat "$HOME/.elixir/elixir-home")
         if [ "$ELIXIR_HOME" = $(pwd) ]
         then
-            docker exec -w /elixir-home -it elixir elixir
+            docker exec -w /elixir-home -it elixir elixir "$@"
         else 
             echo "You are not in the Elixir home directory!"
             echo "Current Elixir home: $ELIXIR_HOME"
@@ -67,7 +67,7 @@ elixirc() {
         ELIXIR_HOME=$(cat "$HOME/.elixir/elixir-home")
         if [ "$ELIXIR_HOME" = $(pwd) ]
         then
-            docker exec -w /elixir-home -it elixir elixirc
+            docker exec -w /elixir-home -it elixir elixirc "$@"
         else 
             echo "You are not in the Elixir home directory!"
             echo "Current Elixir home: $ELIXIR_HOME"
@@ -86,7 +86,7 @@ iex() {
         ELIXIR_HOME=$(cat "$HOME/.elixir/elixir-home")
         if [ "$ELIXIR_HOME" = $(pwd) ]
         then
-            docker exec -w /elixir-home -it elixir iex
+            docker exec -w /elixir-home -it elixir iex "$@"
         else 
             echo "You are not in the Elixir home directory!"
             echo "Current Elixir home: $ELIXIR_HOME"
