@@ -89,10 +89,9 @@ elixir-build() {
     then
         # elixir is running
         ELIXIR_HOME=$(cat "$HOME/.elixir/elixir-home")
-        FILES=$(ls | grep ".ex$")
         if [ "$ELIXIR_HOME" = $(pwd) ]
         then
-            docker exec -w /elixir-home -it elixir elixirc $FILEX
+            docker exec -w /elixir-home -it elixir elixirc $(ls | grep ".ex$")
         else 
             echo "You are not in the Elixir home directory!"
             echo "Current Elixir home: $ELIXIR_HOME"
