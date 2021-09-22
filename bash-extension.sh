@@ -83,6 +83,26 @@ elixirc() {
     fi
 }
 
+elixir-build() {
+    COUNT=$(docker container ls | grep elixir | wc -l)
+    if [ "$COUNT" -eq 1 ]
+    then
+        # elixir is running
+        ELIXIR_HOME=$(cat "$HOME/.elixir/elixir-home")
+        FILES=$(ls | grep ".ex$")
+        if [ "$ELIXIR_HOME" = $(pwd) ]
+        then
+            docker exec -w /elixir-home -it elixir elixirc $FILEX
+        else 
+            echo "You are not in the Elixir home directory!"
+            echo "Current Elixir home: $ELIXIR_HOME"
+            echo "Run \"elixir-start\", to set this directory as your Elixir home!"
+        fi
+    else
+        echo "Elixir is not running, run: elixir-start"
+    fi
+}
+
 iex() {
     COUNT=$(docker container ls | grep elixir | wc -l)
     if [ "$COUNT" -eq 1 ]

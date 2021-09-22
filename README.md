@@ -24,4 +24,5 @@ elixir-start
 elixir
 elixirc
 iex
+elixir-build
 ```
