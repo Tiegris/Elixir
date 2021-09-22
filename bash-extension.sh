@@ -22,7 +22,8 @@ elixir-start() {
     echo $(pwd) > $HOME/.elixir/elixir-home
     ELIXIR_HOME=$(cat "$HOME/.elixir/elixir-home")
     docker run --env ELIXIR_HOME=$ELIXIR_HOME --rm -dit -v "$ELIXIR_HOME:/elixir-home" --name elixir elixir:tiegris /bin/bash >/dev/null && \
-    echo "Elixir container started."
+    echo "Elixir container started." || \
+    echo "Could not start Elixir. Is the Docker daemon running?"
 }
 
 elixir-exec() {
