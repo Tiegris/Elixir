@@ -5,7 +5,7 @@ elixir-upgrade() {
     pwdbak=$(pwd) && \
     cd $HOME/.elixir/ && \
     git pull && \
-    docker build -t elixir:tiegris . && \
+    docker build --no-cache -t elixir:tiegris . && \
     source $HOME/.elixir/bash-extension.sh && \
     echo "Elixir extension successfully upgraded and reloaded"
     cd $pwdbak
