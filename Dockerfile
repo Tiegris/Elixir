@@ -1,4 +1,4 @@
-FROM elixir:latest
+FROM elixir:1.7.3
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV ELIXIR_VERSION="v1.12.3" \
