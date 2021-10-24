@@ -120,3 +120,10 @@ iex() {
         echo "Elixir is not running, run: elixir-start"
     fi
 }
+
+#######################
+# Prolog
+#######################
+prolog() {
+    docker run -it --rm --name prolog -v `pwd`:/home -w /home swip
+}
