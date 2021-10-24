@@ -125,5 +125,5 @@ iex() {
 # Prolog
 #######################
 prolog() {
-    docker run -it --rm --name prolog -v `pwd`:/home -w /home swip
+    docker run -it --rm --name prolog -v `pwd`:/home -w /home swipl:latest
 }
