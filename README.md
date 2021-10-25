@@ -25,4 +25,5 @@ elixir
 elixirc
 iex
 elixir-build
+prolog
 ```
